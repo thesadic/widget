@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Widget Bot</title>
-    <link rel="stylesheet" href="/src/styles.css">
-    <link rel="stylesheet" href="/test.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Página del Cliente con Widget de Voz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .widget-wrapper {
+            float: right; /* O coloca donde quieras */
+            margin-left: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden; /* Para que el iframe no muestre barras de scroll no deseadas */
+        }
+        .widget-iframe {
+            width: 320px; /* Ancho deseado para el widget */
+            height: 450px; /* Altura deseada para el widget */
+            border: none; /* Elimina el borde del iframe */
+            display: block; /* Elimina espacio extra debajo del iframe */
+        }
+        /* Limpiar float para el contenido que sigue */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="https://consorcio.uy/wp-content/uploads/2022/08/logo-consorcio.uy_.png" alt="Consorcio del Uruguay">
-    </header>
-    <div class="main-content">
-        <h1>Demo de Widget Bot</h1>
-        <img src="https://consorcio.uy/wp-content/uploads/2022/08/logo-consorcio.uy_.png" alt="Logo">
-        <form id="pagina-form" style="margin-top: 1.5em;">
-            <label for="pagina-input" style="display:block; margin-bottom:0.5em; color:#5b2d90; font-weight:500;">Ingrese el nombre de la página:</label>
-            <input id="pagina-input" name="pagina" type="text" placeholder="Ej: inicio, simulador..." style="padding:0.5em 1em; border:1px solid #ccc; border-radius:6px; font-size:1em; width:80%; max-width:260px;">
-            <button type="submit" style="margin-left:0.5em; background:#5b2d90; color:#fff; border:none; border-radius:6px; padding:0.5em 1.2em; font-weight:600; cursor:pointer;">Cargar Widget</button>
-        </form>
+    <h1>¡Bienvenido a Nuestra Tienda Online!</h1>
+    <p>Explora nuestra amplia selección de productos de alta calidad.</p>
+
+    <div class="widget-wrapper">
+        <iframe 
+            class="widget-iframe" 
+            src="http://localhost:3000/widget" 
+            title="Asistente Virtual de Compras"
+            allow="microphone"
+        ></iframe>
+        </div>
+
+    <div class="clearfix"></div>
+
+    <p>Tenemos las mejores ofertas en electrónica, ropa, y artículos para el hogar. ¡No te las pierdas!</p>
+    <p>¡No dudes en contactarnos si tienes alguna pregunta!</p>
+
+    <div style="height: 500px; background-color: #f9f9f9; padding: 20px;">
+        <p>Contenido adicional de la página del cliente.</p>
     </div>
-    <div class="footer">
-        © 2025 consorcio.uy &nbsp;|&nbsp; <a href="https://consorcio.uy/">Sitio oficial</a>
-    </div>
-    <div id="widget-float"></div>
-    <script src="/dist/widget.bundle.js"></script>
-    <script src="/widget.min.js"></script>
-    <script>
-        // Render widget in floating div
-        let widgetInstance = null;
-        function renderWidgetWithPagina(pagina) {
-            const container = document.getElementById('widget-float');
-            // Limpiar el contenedor antes de renderizar uno nuevo
-            container.innerHTML = '';
-            if (window.renderWidget) {
-                widgetInstance = window.renderWidget(container, { pagina });
-            }
-        }
-        document.getElementById('pagina-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const pagina = document.getElementById('pagina-input').value.trim();
-            renderWidgetWithPagina(pagina);
-        });
-        // Render default widget on load (sin parámetro)
-        renderWidgetWithPagina('');
-    </script>
 </body>
 </html>
