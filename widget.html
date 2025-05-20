@@ -1,0 +1,111 @@
+<!-- Widget embebible minimalista para insertar en otras páginas -->
+<!-- Instrucciones: incluye <script src="/widget.min.js"></script> y llama a window.renderWidget() en tu página -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Virtual Widget</title>
+    <link rel="stylesheet" href="/static/widget.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="widget-container">
+        <div class="widget-header">
+            <img src="http://madethere.great-site.net/agentes/logoatodocolor.png" alt="Asistente Virtual">
+            <h1>Asistente Virtual</h1>
+        </div>
+        <button id="toggleButton" class="widget-button">
+            🎙️ Iniciar conversación
+        </button>
+        <div id="connectionStatus" class="status disconnected">Desconectada</div>
+    </div>
+
+    <script src="/dist/widget.bundle.js"></script>
+
+    <script>
+        let conversation = null;
+        let isConversationActive = false;
+
+        async function requestMicrophonePermission() {
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true });
+                return true;
+            } catch (error) {
+                console.error('Microphone permission denied:', error);
+                return false;
+            }
+        }
+
+        async function getSignedUrl() {
+            try {
+                const response = await fetch('/api/signed-url');
+                if (!response.ok) throw new Error('Failed to get signed URL');
+                const data = await response.json();
+                return data.signedUrl;
+            } catch (error) {
+                console.error('Error getting signed URL:', error);
+                throw error;
+            }
+        }
+        
+        function updateStatus(isConnected) {
+            const statusElement = document.getElementById('connectionStatus');
+            statusElement.textContent = isConnected ? 'Conectada' : 'Desconectada';
+            statusElement.classList.toggle('connected', isConnected);
+            statusElement.classList.toggle('disconnected', !isConnected);
+        }
+
+        async function toggleConversation() {
+            const toggleButton = document.getElementById('toggleButton');
+
+            if (isConversationActive) {
+                // End the conversation
+                if (conversation) {
+                    await conversation.endSession();
+                    conversation = null;
+                }
+                toggleButton.innerHTML = '🎙️ Iniciar conversación';
+                isConversationActive = false;
+                updateStatus(false);
+            } else {
+                // Start the conversation
+                try {
+                    const hasPermission = await requestMicrophonePermission();
+                    if (!hasPermission) {
+                        alert('Necesito acceso al micrófono para poder ayudarte con tus compras.');
+                        return;
+                    }
+
+                    const signedUrl = await getSignedUrl();
+
+                    conversation = await Conversation.startSession({
+                        signedUrl: signedUrl,
+                        onConnect: () => {
+                            console.log('Connected');
+                            updateStatus(true);
+                            toggleButton.innerHTML = '⏹️ Finalizar conversación';
+                            isConversationActive = true;
+                        },
+                        onDisconnect: () => {
+                            console.log('Disconnected');
+                            updateStatus(false);
+                            toggleButton.innerHTML = '🎙️ Iniciar conversación';
+                            isConversationActive = false;
+                        },
+                        onError: (error) => {
+                            console.error('Conversation error:', error);
+                            alert('Lo siento, ha ocurrido un error. Por favor, intenta de nuevo.');
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error starting conversation:', error);
+                    alert('No pude iniciar la conversación. Por favor, intenta de nuevo.');
+                }
+            }
+        }
+
+        document.getElementById('toggleButton').addEventListener('click', toggleConversation);
+    </script>
+</body>
+</html>

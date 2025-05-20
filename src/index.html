@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consorcio del Uruguay - Asistente Virtual</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f7f7f7;
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            color: #2d2d2d;
+        }
+        .main-header {
+            background: #5b2d90;
+            color: #fff;
+            padding: 32px 0 16px 0;
+            text-align: center;
+        }
+        .main-header img {
+            max-width: 180px;
+            margin-bottom: 10px;
+        }
+        .main-header h1 {
+            font-size: 2.2em;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+        .main-header .subtitle {
+            font-size: 1.1em;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+        .main-content {
+            max-width: 480px;
+            margin: 32px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .status-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .status {
+            background: #f3eaff;
+            color: #5b2d90;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .primary-button {
+            background: #2e7dff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 28px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(46,125,255,0.08);
+        }
+        .primary-button:hover {
+            background: #1b5fc6;
+        }
+        .footer-logo {
+            margin: 48px 0 0 0;
+            text-align: center;
+            color: #888;
+            font-size: 0.98em;
+        }
+        .footer-logo img {
+            max-width: 120px;
+            margin-top: 8px;
+        }
+        .footer-logo .text {
+            margin-bottom: 4px;
+        }
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 18px 6px 18px 6px;
+            }
+            .main-header img {
+                max-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <img src="https://consorcio.uy/wp-content/uploads/2022/08/logo-consorcio.uy_.png" alt="Consorcio del Uruguay">
+        <h1>Consorcio del Uruguay</h1>
+        <div class="subtitle">Administradora de Grupos de Ahorro Previo</div>
+    </header>
+    <main class="main-content">
+        <div class="status-container">
+            <div id="connectionStatus" class="status">
+                <span class="status-icon"></span>
+                <span class="status-text">Desconectada</span>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="toggleButton" class="button primary-button">
+                <span class="button-icon">🎙️</span>
+                Iniciar conversación
+            </button>
+        </div>
+        <div style="text-align:center; margin-top:18px; color:#5b2d90; font-weight:500;">
+            ¿Tenés dudas sobre nuestros productos? ¡Consultá a nuestro asistente virtual!
+        </div>
+    </main>
+    <footer class="footer-logo">
+        <div class="text">Desarrollado por</div>
+        <a href="https://www.madethere.com.uy" target="_blank">
+            <img src="http://madethere.great-site.net/Logo-LS-BG-3.0.png" alt="Made there Software factory">
+        </a>
+    </footer>
+    <script src="/static/bundle.js"></script>
+</body>
+</html>
