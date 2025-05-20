@@ -11,19 +11,22 @@
             line-height: 1.6;
         }
         .widget-wrapper {
-            float: right; /* O coloca donde quieras */
-            margin-left: 20px;
-            margin-bottom: 20px;
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 9999;
+            margin: 0;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden; /* Para que el iframe no muestre barras de scroll no deseadas */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            overflow: hidden;
+            background: #fff;
         }
         .widget-iframe {
-            width: 320px; /* Ancho deseado para el widget */
-            height: 450px; /* Altura deseada para el widget */
-            border: none; /* Elimina el borde del iframe */
-            display: block; /* Elimina espacio extra debajo del iframe */
+            width: 320px;
+            height: 160px;
+            border: none;
+            display: block;
         }
         /* Limpiar float para el contenido que sigue */
         .clearfix::after {
@@ -52,7 +55,7 @@
         ></iframe>
     </div>
     <script>
-    const WIDGET_BASE_URL = "https://consorcio.madethere.com.uy/widget";
+    const WIDGET_BASE_URL = "http://localhost:4005/widget";
 
     document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${document.getElementById('paginaInput').value}`;
 
