@@ -93,6 +93,7 @@ import { Conversation } from '@11labs/client';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
+                    dynamicVariables: { pagina: '2' }, // <-- pasa la variable pagina a ElevenLabs
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
