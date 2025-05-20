@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Conversacional | Tu Asistente Inteligente</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap">
+    <link rel="stylesheet" href="ia-landing.css">
+</head>
+<body>
+    <header>
+        <div class="container" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <h1 style="margin-bottom: 0;">Asistente IA Conversacional by</h1>
+            <img src="https://madethere.great-site.net/Logo-LS-BG-3.0.png" alt="Logo Madethere" class="logo-madethere" style="margin-bottom: 0;" />
+        </div>
+        <div class="container">
+            <p class="subtitle">Experiencia de conversación natural potenciada por inteligencia artificial avanzada para tu sitio web</p>
+            <a href="#demo" class="btn">Prueba el demo</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Transforma la interacción con tus usuarios</h2>
+            <p class="text-center subtitle">Nuestro asistente de IA ofrece una experiencia conversacional natural que mejora la satisfacción y engagement de los usuarios</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Inteligencia avanzada</h3>
+                    <p>Capaz de entender contexto complejo y mantener conversaciones fluidas con los usuarios como si fuera un humano.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Respuestas instantáneas</h3>
+                    <p>Proporciona información inmediata a los usuarios, mejorando su experiencia y reduciendo el tiempo de espera.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Personalización total</h3>
+                    <p>Adapta las respuestas según el contexto de tu sitio web y las necesidades específicas de tu negocio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="demo">
+        <div class="container">
+            <h2 class="text-center">Experimenta nuestro asistente en acción</h2>
+            <p class="text-center subtitle">Prueba diferentes configuraciones seleccionando el número de página y comprueba cómo se adapta el asistente a distintos contextos</p>
+            
+            <div class="control-panel">
+                <label for="paginaInput">Página:</label>
+                <input type="number" id="paginaInput" value="1" min="1" max="9" style="width: 60px;">
+                <button onclick="actualizarIframe()" class="btn">Actualizar Widget</button>
+            </div>
+            
+            <!-- El widget ahora estará flotando en la esquina inferior derecha de la pantalla -->
+            <div class="widget-wrapper">
+                <iframe 
+                    class="widget-iframe" 
+                    id="widgetIframe"
+                    src="" 
+                    title="Asistente Virtual de IA"
+                    allow="microphone"
+                ></iframe>
+            </div>
+            
+            <script>
+                const WIDGET_BASE_URL = "https://consorcio.madethere.com.uy/widget";
+//                const WIDGET_BASE_URL = "http://localhost:4005/widget";
+            
+                document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${document.getElementById('paginaInput').value}`;
+            
+                function actualizarIframe() {
+                    const pagina = document.getElementById('paginaInput').value;
+                    document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${pagina}`;
+                }
+            </script>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">¿Por qué elegir nuestro asistente de IA?</h2>
+            
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Inteligencia artificial conversacional" />
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Asistencia virtual inteligente" />
+                </div>
+                <div class="image-item">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Chatbot IA avanzado" />
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p class="quote">"La implementación del asistente de IA aumentó nuestras conversiones en un 35% y mejoró significativamente la experiencia de los usuarios."</p>
+                    <p class="author">- María García, Directora de E-commerce</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="quote">"El asistente responde preguntas complejas de manera natural y personalizada. Nuestros clientes están encantados con la experiencia."</p>
+                    <p class="author">- Carlos Rodríguez, CEO</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="quote">"Logramos reducir en un 60% las consultas a nuestro equipo de soporte gracias a la eficiencia del asistente de IA."</p>
+                    <p class="author">- Ana Martínez, Gerente de Atención al Cliente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="text-center">Integración sencilla en cualquier sitio web</h2>
+            <p class="text-center subtitle">Implementa nuestro asistente de IA en minutos con solo unas pocas líneas de código</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Fácil instalación</h3>
+                    <p>Sin conocimientos técnicos avanzados - simplemente copia y pega nuestro código de integración.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Totalmente responsive</h3>
+                    <p>Se adapta perfectamente a cualquier dispositivo, desde móviles hasta pantallas de escritorio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Personalización visual</h3>
+                    <p>Adapta los colores, estilos y posición para que combine perfectamente con tu marca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La sección de contenido adicional ha sido eliminada -->
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Características</a>
+                <a href="#">Precios</a>
+                <a href="#">Documentación</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 <a href="https://madethere.com.uy" style="color:#fff;font-weight:700;text-decoration:none;">Made There</a> &mdash; Desarrollado por
+                <a href="https://madethere.com.uy" style="color:#00b4d8;font-weight:700;text-decoration:none;">Made There</a>
+                <img src="https://madethere.great-site.net/Logo-LS-BG-3.0.png" alt="Logo Madethere" class="footer-logo" />
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
