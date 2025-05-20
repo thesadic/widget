@@ -46,15 +46,19 @@
         <iframe 
             class="widget-iframe" 
             id="widgetIframe"
-            src="http://localhost:4005/widget?pagina=2" 
+            src="" 
             title="Asistente Virtual de Compras"
             allow="microphone"
         ></iframe>
     </div>
     <script>
+    const WIDGET_BASE_URL = "https://consorcio.madethere.com.uy/widget";
+
+    document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${document.getElementById('paginaInput').value}`;
+
     function actualizarIframe() {
         const pagina = document.getElementById('paginaInput').value;
-        document.getElementById('widgetIframe').src = `http://localhost:4005/widget?pagina=${pagina}`;
+        document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${pagina}`;
     }
     </script>
 
