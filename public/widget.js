@@ -41,6 +41,11 @@ import { Conversation } from '@11labs/client';
         }
     }
 
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
     async function toggleConversation() {
         const toggleButton = document.getElementById('toggleButton');
         if (!toggleButton || isToggling) { // Bloquear si ya estamos en un proceso de toggle
@@ -91,9 +96,12 @@ import { Conversation } from '@11labs/client';
                 // Iniciar la conversación
                 console.log('Iniciando conversación...');
 
+                // Obtener el valor de pagina de la URL
+                const pagina = getQueryParam('pagina') || '2';
+
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
-                    dynamicVariables: { pagina: '2' }, // <-- pasa la variable pagina a ElevenLabs
+                    dynamicVariables: { pagina }, // <-- pasa la variable pagina a ElevenLabs
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);

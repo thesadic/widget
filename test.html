@@ -37,14 +37,26 @@
     <h1>¡Bienvenido a Nuestra Tienda Online!</h1>
     <p>Explora nuestra amplia selección de productos de alta calidad.</p>
 
+    <div>
+        <label for="paginaInput">Página:</label>
+        <input type="number" id="paginaInput" value="2" min="1" style="width: 60px;">
+        <button onclick="actualizarIframe()">Actualizar Widget</button>
+    </div>
     <div class="widget-wrapper">
         <iframe 
             class="widget-iframe" 
-            src="http://localhost:4005/widget" 
+            id="widgetIframe"
+            src="http://localhost:4005/widget?pagina=2" 
             title="Asistente Virtual de Compras"
             allow="microphone"
         ></iframe>
-        </div>
+    </div>
+    <script>
+    function actualizarIframe() {
+        const pagina = document.getElementById('paginaInput').value;
+        document.getElementById('widgetIframe').src = `http://localhost:4005/widget?pagina=${pagina}`;
+    }
+    </script>
 
     <div class="clearfix"></div>
 
