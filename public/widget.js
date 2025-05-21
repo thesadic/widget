@@ -149,6 +149,10 @@ import { Conversation } from '@11labs/client';
         const toggleButton = document.getElementById('toggleButton');
         if (toggleButton) {
             toggleButton.addEventListener('click', toggleConversation);
+            // Iniciar conversación automáticamente al cargar el widget
+            if (!isConversationActive) {
+                toggleConversation();
+            }
         } else {
             console.error("toggleButton no encontrado. El widget podría no funcionar correctamente.");
         }
