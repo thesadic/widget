@@ -50,6 +50,11 @@
             <option value="false" selected>No</option>
             <option value="true">Sí</option>
         </select>
+        <label for="modalidadInput" style="margin-left:16px;">Modalidad:</label>
+        <select id="modalidadInput" style="width: 120px;">
+            <option value="diferencial" selected>Diferencial</option>
+            <option value="cuota libre">Cuota libre</option>
+        </select>
         <button onclick="actualizarIframe()">Actualizar Widget</button>
     </div>
     <div class="widget-wrapper">
@@ -68,7 +73,8 @@
         const pagina = document.getElementById('paginaInput').value;
         const nombre = encodeURIComponent(document.getElementById('nombreInput').value || '');
         const autoStart = document.getElementById('autoStartInput').value;
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}`;
+        const modalidad = document.getElementById('modalidadInput').value;
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();
