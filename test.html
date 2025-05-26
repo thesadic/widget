@@ -37,7 +37,7 @@
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido a nuesto asistente de Inteligecia Artificial!</h1>
+    <h1>¡Bienvenido a nuesto asistente de Inteligencia Artificial!</h1>
     <p>Explora como puedes interactuar desde tu página web habalndo como si fuera una conversacion con una persona real.</p>
 
     <div>
@@ -45,6 +45,11 @@
         <input type="number" id="paginaInput" value="1" min="1" max="9" style="width: 60px;">
         <label for="nombreInput" style="margin-left:16px;">Nombre:</label>
         <input type="text" id="nombreInput" value="" placeholder="Tu nombre" style="width: 120px;">
+        <label for="autoStartInput" style="margin-left:16px;">Iniciar automáticamente:</label>
+        <select id="autoStartInput" style="width: 80px;">
+            <option value="false" selected>No</option>
+            <option value="true">Sí</option>
+        </select>
         <button onclick="actualizarIframe()">Actualizar Widget</button>
     </div>
     <div class="widget-wrapper">
@@ -62,7 +67,8 @@
     function getIframeUrl() {
         const pagina = document.getElementById('paginaInput').value;
         const nombre = encodeURIComponent(document.getElementById('nombreInput').value || '');
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}`;
+        const autoStart = document.getElementById('autoStartInput').value;
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();
@@ -73,9 +79,6 @@
     </script>
 
     <div class="clearfix"></div>
-
-    <p>Tenemos las mejores ofertas en electrónica, ropa, y artículos para el hogar. ¡No te las pierdas!</p>
-    <p>¡No dudes en contactarnos si tienes alguna pregunta!</p>
 
     <div style="height: 500px; background-color: #f9f9f9; padding: 20px;">
         <p>Contenido adicional de la página del cliente.</p>

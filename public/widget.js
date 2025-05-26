@@ -96,9 +96,10 @@ import { Conversation } from '@11labs/client';
                 // Iniciar la conversación
                 console.log('Iniciando conversación...');
 
-                // Obtener el valor de pagina y nombre de la URL
+                // Obtener el valor de pagina, nombre y autoStart de la URL
                 const pagina = getQueryParam('pagina') || '2';
                 const nombre = getQueryParam('nombre') || '';
+                const autoStart = getQueryParam('autoStart') === 'true';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
@@ -150,8 +151,8 @@ import { Conversation } from '@11labs/client';
         const toggleButton = document.getElementById('toggleButton');
         if (toggleButton) {
             toggleButton.addEventListener('click', toggleConversation);
-            // Iniciar conversación automáticamente al cargar el widget
-            if (!isConversationActive) {
+            // Iniciar conversación automáticamente si autoStart=true
+            if (getQueryParam('autoStart') === 'true' && !isConversationActive) {
                 toggleConversation();
             }
         } else {
