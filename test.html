@@ -43,6 +43,8 @@
     <div>
         <label for="paginaInput">Página:</label>
         <input type="number" id="paginaInput" value="1" min="1" max="9" style="width: 60px;">
+        <label for="nombreInput" style="margin-left:16px;">Nombre:</label>
+        <input type="text" id="nombreInput" value="" placeholder="Tu nombre" style="width: 120px;">
         <button onclick="actualizarIframe()">Actualizar Widget</button>
     </div>
     <div class="widget-wrapper">
@@ -57,11 +59,16 @@
     <script>
     const WIDGET_BASE_URL = "http://localhost:4005/widget";
 
-    document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${document.getElementById('paginaInput').value}`;
+    function getIframeUrl() {
+        const pagina = document.getElementById('paginaInput').value;
+        const nombre = encodeURIComponent(document.getElementById('nombreInput').value || '');
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}`;
+    }
+
+    document.getElementById('widgetIframe').src = getIframeUrl();
 
     function actualizarIframe() {
-        const pagina = document.getElementById('paginaInput').value;
-        document.getElementById('widgetIframe').src = `${WIDGET_BASE_URL}?pagina=${pagina}`;
+        document.getElementById('widgetIframe').src = getIframeUrl();
     }
     </script>
 
