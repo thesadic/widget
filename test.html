@@ -34,27 +34,107 @@
             clear: both;
             display: table;
         }
+
+        .input-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 18px;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .input-container label {
+            margin-bottom: 4px;
+            grid-column: span 2;
+        }
+        .input-container .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .input-container button {
+            grid-column: span 2;
+            margin-top: 10px;
+        }
+
+        .input-container input,
+        .input-container select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .input-container button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido a nuesto asistente de Inteligencia Artificial!</h1>
+    <h1>¡Bienvenido a nuestro asistente de Inteligencia Artificial!</h1>
     <p>Explora como puedes interactuar desde tu página web habalndo como si fuera una conversacion con una persona real.</p>
 
-    <div>
-        <label for="paginaInput">Página:</label>
-        <input type="number" id="paginaInput" value="1" min="1" max="9" style="width: 60px;">
-        <label for="nombreInput" style="margin-left:16px;">Nombre:</label>
-        <input type="text" id="nombreInput" value="" placeholder="Tu nombre" style="width: 120px;">
-        <label for="autoStartInput" style="margin-left:16px;">Iniciar automáticamente:</label>
-        <select id="autoStartInput" style="width: 80px;">
-            <option value="false" selected>No</option>
-            <option value="true">Sí</option>
-        </select>
-        <label for="modalidadInput" style="margin-left:16px;">Modalidad:</label>
-        <select id="modalidadInput" style="width: 120px;">
-            <option value="diferencial" selected>Diferencial</option>
-            <option value="cuota libre">Cuota libre</option>
-        </select>
+    <div class="input-container">
+        <div class="input-group">
+            <label for="paginaInput">Página:</label>
+            <input type="number" id="paginaInput" value="1" min="1" max="9">
+        </div>
+        <div class="input-group">
+            <label for="nombreInput">Nombre:</label>
+            <input type="text" id="nombreInput" value="" placeholder="Tu nombre">
+        </div>
+        <div class="input-group">
+            <label for="autoStartInput">Iniciar automáticamente:</label>
+            <select id="autoStartInput">
+                <option value="false" selected>No</option>
+                <option value="true">Sí</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="modalidadInput">Modalidad:</label>
+            <select id="modalidadInput">
+                <option value="diferencial" selected>Diferencial</option>
+                <option value="cuota libre">Cuota libre</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="capitalInput">Capital:</label>
+            <input type="number" id="capitalInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="valorCuotaInput">Valor cuota:</label>
+            <input type="number" id="valorCuotaInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="monedaInput">Moneda:</label>
+            <select id="monedaInput">
+                <option value="Dolares">Dólares</option>
+                <option value="Pesos Fijos">Pesos Fijos</option>
+                <option value="IPC">IPC</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="numeroGrupoInput">N° Grupo:</label>
+            <input type="number" id="numeroGrupoInput" min="1" step="1">
+        </div>
+        <div class="input-group">
+            <label for="numeroOrdenInput">N° Orden:</label>
+            <input type="number" id="numeroOrdenInput" min="1" step="1">
+        </div>
+        <div class="input-group">
+            <label for="mesGrupoInput">Mes Grupo:</label>
+            <input type="number" id="mesGrupoInput" min="1" max="300" step="1">
+        </div>
         <button onclick="actualizarIframe()">Actualizar Widget</button>
     </div>
     <div class="widget-wrapper">
@@ -74,7 +154,13 @@
         const nombre = encodeURIComponent(document.getElementById('nombreInput').value || '');
         const autoStart = document.getElementById('autoStartInput').value;
         const modalidad = document.getElementById('modalidadInput').value;
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}`;
+        const capital = document.getElementById('capitalInput').value;
+        const valorCuota = document.getElementById('valorCuotaInput').value;
+        const moneda = document.getElementById('monedaInput').value;
+        const numeroGrupo = document.getElementById('numeroGrupoInput').value;
+        const numeroOrden = document.getElementById('numeroOrdenInput').value;
+        const mesGrupo = document.getElementById('mesGrupoInput').value;
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&valor_cuota=${valorCuota}&moneda=${encodeURIComponent(moneda)}&Numero_Grupo=${numeroGrupo}&Numero_Orden=${numeroOrden}&Mes_Grupo=${mesGrupo}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();
@@ -86,8 +172,6 @@
 
     <div class="clearfix"></div>
 
-    <div style="height: 500px; background-color: #f9f9f9; padding: 20px;">
-        <p>Contenido adicional de la página del cliente.</p>
-    </div>
+
 </body>
 </html>

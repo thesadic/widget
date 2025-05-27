@@ -96,15 +96,20 @@ import { Conversation } from '@11labs/client';
                 // Iniciar la conversación
                 console.log('Iniciando conversación...');
 
-                // Obtener el valor de pagina, nombre, autoStart y modalidad de la URL
+                // Obtener el valor de pagina, nombre, modalidad y los nuevos parámetros de la URL
                 const pagina = getQueryParam('pagina') || '2';
                 const nombre = getQueryParam('nombre') || '';
                 const modalidad = getQueryParam('modalidad') || 'diferencial';
-                // autoStart solo controla el inicio automático, no se pasa a ElevenLabs
+                const Capital = getQueryParam('capital') || '';
+                const Valor_cuota = getQueryParam('valor_cuota') || '';
+                const Moneda = getQueryParam('moneda') || '';
+                const Numero_Grupo = getQueryParam('Numero_Grupo') || '';
+                const Numero_Orden = getQueryParam('Numero_Orden') || '';
+                const Mes_Grupo = getQueryParam('Mes_Grupo') || '';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
-                    dynamicVariables: { pagina, nombre, modalidad }, // <-- solo pagina, nombre y modalidad
+                    dynamicVariables: { pagina, nombre, modalidad, Capital, Valor_cuota, Moneda, Numero_Grupo, Numero_Orden, Mes_Grupo }, // <-- solo pagina, nombre y modalidad
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
