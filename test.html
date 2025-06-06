@@ -143,8 +143,44 @@
             <input type="number" id="capitalInput" min="0" step="any">
         </div>
         <div class="input-group">
+            <label for="capitalMinimoInput">Capital Mínimo:</label>
+            <input type="number" id="capitalMinimoInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="capitalPromedioInput">Capital Promedio:</label>
+            <input type="number" id="capitalPromedioInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="capitalMaximoInput">Capital Máximo:</label>
+            <input type="number" id="capitalMaximoInput" min="0" step="any">
+        </div>
+        <div class="input-group">
             <label for="valorCuotaInput">Valor cuota:</label>
             <input type="number" id="valorCuotaInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaMinimaInput">Cuota Mínima:</label>
+            <input type="number" id="cuotaMinimaInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaPromedioInput">Cuota Promedio:</label>
+            <input type="number" id="cuotaPromedioInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaMaximaInput">Cuota Máxima:</label>
+            <input type="number" id="cuotaMaximaInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaEsperaInput">Cuota Espera:</label>
+            <input type="number" id="cuotaEsperaInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaNormalInput">Cuota Normal:</label>
+            <input type="number" id="cuotaNormalInput" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="cuotaFinalInput">Cuota Final:</label>
+            <input type="number" id="cuotaFinalInput" min="0" step="any">
         </div>
         <div class="input-group">
             <label for="monedaInput">Moneda:</label>
@@ -178,8 +214,8 @@
         ></iframe>
     </div>
     <script>
-    //const WIDGET_BASE_URL = "http://localhost:4005/widget";
-    const WIDGET_BASE_URL = "https://consorcio.madethere.com.uy/widget";
+    const WIDGET_BASE_URL = "http://localhost:4005/widget";
+    // const WIDGET_BASE_URL = "https://consorcio.madethere.com.uy/widget";
 
     function getIframeUrl() {
         const pagina = document.getElementById('paginaInput').value;
@@ -187,12 +223,22 @@
         const autoStart = document.getElementById('autoStartInput').value;
         const modalidad = document.getElementById('modalidadInput').value;
         const capital = document.getElementById('capitalInput').value;
+        const capitalMinimo = document.getElementById('capitalMinimoInput').value;
+        const capitalPromedio = document.getElementById('capitalPromedioInput').value;
+        const capitalMaximo = document.getElementById('capitalMaximoInput').value;
         const valorCuota = document.getElementById('valorCuotaInput').value;
+        const cuotaMinima = document.getElementById('cuotaMinimaInput').value;
+        const cuotaPromedio = document.getElementById('cuotaPromedioInput').value;
+        const cuotaMaxima = document.getElementById('cuotaMaximaInput').value;
+        const cuotaEspera = document.getElementById('cuotaEsperaInput').value;
+        const cuotaNormal = document.getElementById('cuotaNormalInput').value;
+        const cuotaFinal = document.getElementById('cuotaFinalInput').value;
         const moneda = document.getElementById('monedaInput').value;
         const numeroGrupo = document.getElementById('numeroGrupoInput').value;
         const numeroOrden = document.getElementById('numeroOrdenInput').value;
         const mesGrupo = document.getElementById('mesGrupoInput').value;
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&valor_cuota=${valorCuota}&moneda=${encodeURIComponent(moneda)}&Numero_Grupo=${numeroGrupo}&Numero_Orden=${numeroOrden}&Mes_Grupo=${mesGrupo}`;
+        
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&capital_minimo=${capitalMinimo}&capital_promedio=${capitalPromedio}&capital_maximo=${capitalMaximo}&valor_cuota=${valorCuota}&cuota_minima=${cuotaMinima}&cuota_promedio=${cuotaPromedio}&cuota_maxima=${cuotaMaxima}&cuota_espera=${cuotaEspera}&cuota_normal=${cuotaNormal}&cuota_final=${cuotaFinal}&moneda=${encodeURIComponent(moneda)}&Numero_Grupo=${numeroGrupo}&Numero_Orden=${numeroOrden}&Mes_Grupo=${mesGrupo}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();

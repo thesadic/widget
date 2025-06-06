@@ -100,16 +100,44 @@ import { Conversation } from '@11labs/client';
                 const pagina = getQueryParam('pagina') || '2';
                 const nombre = getQueryParam('nombre') || '';
                 const modalidad = getQueryParam('modalidad') || 'diferencial';
-                const Capital = getQueryParam('capital') || '';
-                const Valor_cuota = getQueryParam('valor_cuota') || '';
-                const Moneda = getQueryParam('moneda') || '';
-                const Numero_Grupo = getQueryParam('Numero_Grupo') || '';
-                const Numero_Orden = getQueryParam('Numero_Orden') || '';
-                const Mes_Grupo = getQueryParam('Mes_Grupo') || '';
+                const capital = getQueryParam('capital') || '';
+                const capital_minimo = getQueryParam('capital_minimo') || '';
+                const capital_promedio = getQueryParam('capital_promedio') || '';
+                const capital_maximo = getQueryParam('capital_maximo') || '';
+                const valor_cuota = getQueryParam('valor_cuota') || '';
+                const cuota_minima = getQueryParam('cuota_minima') || '';
+                const cuota_promedio = getQueryParam('cuota_promedio') || '';
+                const cuota_maxima = getQueryParam('cuota_maxima') || '';
+                const cuota_espera = getQueryParam('cuota_espera') || '';
+                const cuota_normal = getQueryParam('cuota_normal') || '';
+                const cuota_final = getQueryParam('cuota_final') || '';
+                const moneda = getQueryParam('moneda') || '';
+                const numero_grupo = getQueryParam('numero_grupo') || '';
+                const numero_orden = getQueryParam('numero_orden') || '';
+                const mes_grupo = getQueryParam('mes_grupo') || '';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
-                    dynamicVariables: { pagina, nombre, modalidad, Capital, Valor_cuota, Moneda, Numero_Grupo, Numero_Orden, Mes_Grupo }, // <-- solo pagina, nombre y modalidad
+                    dynamicVariables: {
+                        pagina,
+                        nombre,
+                        modalidad,
+                        capital,
+                        capital_minimo,
+                        capital_promedio,
+                        capital_maximo,
+                        valor_cuota,
+                        cuota_minima,
+                        cuota_promedio,
+                        cuota_maxima,
+                        cuota_espera,
+                        cuota_normal,
+                        cuota_final,
+                        moneda,
+                        numero_grupo,
+                        numero_orden,
+                        mes_grupo
+                    },
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
