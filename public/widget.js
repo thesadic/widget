@@ -133,10 +133,10 @@ import { Conversation } from '@11labs/client';
                         cuota_espera,
                         cuota_normal,
                         cuota_final,
-                        moneda,
                         numero_grupo,
+                        mes_grupo,
+                        moneda,
                         numero_orden,
-                        mes_grupo
                     },
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
