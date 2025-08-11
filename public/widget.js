@@ -98,7 +98,10 @@ import { Conversation } from '@11labs/client';
 
                 // Obtener el valor de pagina, nombre, modalidad y los nuevos parámetros de la URL
                 const pagina = getQueryParam('pagina') || '2';
-                const nombre = getQueryParam('nombre') || '';
+                let nombre = getQueryParam('nombre') || '';
+                if (nombre.toLowerCase() === 'alvaro') {
+                    nombre = 'Álvaro';
+                }
                 const modalidad = getQueryParam('modalidad') || 'diferencial';
                 const capital = getQueryParam('capital') || '';
                 const capital_minimo = getQueryParam('capital_minimo') || '';
@@ -115,6 +118,8 @@ import { Conversation } from '@11labs/client';
                 const numero_grupo = getQueryParam('numero_grupo') || '';
                 const numero_orden = getQueryParam('numero_orden') || '';
                 const mes_grupo = getQueryParam('mes_grupo') || '';
+                const cantidad_ganadores = getQueryParam('cantidad_ganadores') || '';
+                const total_meses = getQueryParam('total_meses') || '';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
@@ -137,6 +142,8 @@ import { Conversation } from '@11labs/client';
                         mes_grupo,
                         moneda,
                         numero_orden,
+                        cantidad_ganadores,
+                        total_meses
                     },
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');

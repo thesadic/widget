@@ -132,7 +132,7 @@
         const numeroOrden = document.getElementById('numeroOrdenInput').value;
         const mesGrupo = document.getElementById('mesGrupoInput').value;
         
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&capital_minimo=${capitalMinimo}&capital_promedio=${capitalPromedio}&capital_maximo=${capitalMaximo}&valor_cuota=${valorCuota}&cuota_minima=${cuotaMinima}&cuota_promedio=${cuotaPromedio}&cuota_maxima=${cuotaMaxima}&cuota_espera=${cuotaEspera}&cuota_normal=${cuotaNormal}&cuota_final=${cuotaFinal}&moneda=${encodeURIComponent(moneda)}&numero_grupo=${numeroGrupo}&numero_orden=${numeroOrden}&mes_grupo=${mesGrupo}`;
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&capital_minimo=${capitalMinimo}&capital_promedio=${capitalPromedio}&capital_maximo=${capitalMaximo}&valor_cuota=${valorCuota}&cuota_minima=${cuotaMinima}&cuota_promedio=${cuotaPromedio}&cuota_maxima=${cuotaMaxima}&cuota_espera=${cuotaEspera}&cuota_normal=${cuotaNormal}&cuota_final=${cuotaFinal}&moneda=${encodeURIComponent(moneda)}&numero_grupo=${numeroGrupo}&numero_orden=${numeroOrden}&mes_grupo=${mesGrupo}&cantidad_ganadores=${mcantidadGanadores}&total_meses=${totalMeses}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();
