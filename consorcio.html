@@ -96,6 +96,14 @@
             <label for="mesGrupoInput">Mes Grupo:</label>
             <input type="number" id="mesGrupoInput" min="1" max="300" step="1">
         </div>
+        <div class="input-group">
+            <label for="cantidadGanadoresInput">Cantidad de Ganadores:</label>
+            <input type="number" id="cantidadGanadoresInput" min="0" step="1">
+        </div>
+        <div class="input-group">
+            <label for="totalMesesInput">Total de Meses:</label>
+            <input type="number" id="totalMesesInput" min="1" max="300" step="1" value="300">
+        </div>
         <button onclick="actualizarIframe()">Actualizar Widget</button>
     </div>
     <div class="widget-wrapper">
@@ -131,8 +139,10 @@
         const numeroGrupo = document.getElementById('numeroGrupoInput').value;
         const numeroOrden = document.getElementById('numeroOrdenInput').value;
         const mesGrupo = document.getElementById('mesGrupoInput').value;
+        const cantidadGanadores = document.getElementById('cantidadGanadoresInput').value;
+        const totalMeses = document.getElementById('totalMesesInput').value || 300;
         
-        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&capital_minimo=${capitalMinimo}&capital_promedio=${capitalPromedio}&capital_maximo=${capitalMaximo}&valor_cuota=${valorCuota}&cuota_minima=${cuotaMinima}&cuota_promedio=${cuotaPromedio}&cuota_maxima=${cuotaMaxima}&cuota_espera=${cuotaEspera}&cuota_normal=${cuotaNormal}&cuota_final=${cuotaFinal}&moneda=${encodeURIComponent(moneda)}&numero_grupo=${numeroGrupo}&numero_orden=${numeroOrden}&mes_grupo=${mesGrupo}&cantidad_ganadores=${mcantidadGanadores}&total_meses=${totalMeses}`;
+        return `${WIDGET_BASE_URL}?pagina=${pagina}&nombre=${nombre}&autoStart=${autoStart}&modalidad=${encodeURIComponent(modalidad)}&capital=${capital}&capital_minimo=${capitalMinimo}&capital_promedio=${capitalPromedio}&capital_maximo=${capitalMaximo}&valor_cuota=${valorCuota}&cuota_minima=${cuotaMinima}&cuota_promedio=${cuotaPromedio}&cuota_maxima=${cuotaMaxima}&cuota_espera=${cuotaEspera}&cuota_normal=${cuotaNormal}&cuota_final=${cuotaFinal}&moneda=${encodeURIComponent(moneda)}&numero_grupo=${numeroGrupo}&numero_orden=${numeroOrden}&mes_grupo=${mesGrupo}&cantidad_ganadores=${cantidadGanadores}&total_meses=${totalMeses}`;
     }
 
     document.getElementById('widgetIframe').src = getIframeUrl();
