@@ -102,6 +102,23 @@ import { Conversation } from '@11labs/client';
                 if (nombre.toLowerCase() === 'alvaro') {
                     nombre = 'Álvaro';
                 }
+                const textoGanadores = getQueryParam('cantidad_ganadores') || '';
+                const regex = /hay (\d+) ganadores.*?finalizará en (\d+) meses/;
+
+                // Variables para almacenar los resultados
+                let cantidad_ganadores = '';
+                let total_meses = 300;
+                let meses_restantes = '';
+
+                // Ejecutar la expresión regular en el texto
+                const match = textoGanadores.match(regex);
+
+                // Verificar si se encontraron coincidencias
+                if (match) {
+                    // Asignar los valores capturados a las variables
+                    cantidad_ganadores = parseInt(match[1], 10);
+                    meses_restantes = parseInt(match[2], 10);
+                }
                 const modalidad = getQueryParam('modalidad') || 'diferencial';
                 const capital = getQueryParam('capital') || '';
                 const capital_minimo = getQueryParam('capital_minimo') || '';
@@ -117,9 +134,9 @@ import { Conversation } from '@11labs/client';
                 const moneda = getQueryParam('moneda') || '';
                 const numero_grupo = getQueryParam('numero_grupo') || '';
                 const numero_orden = getQueryParam('numero_orden') || '';
-                const mes_grupo = getQueryParam('mes_grupo') || '';
-                const cantidad_ganadores = getQueryParam('cantidad_ganadores') || '';
-                const total_meses = getQueryParam('total_meses') || '';
+                // const mes_grupo = getQueryParam('mes_grupo') || '';
+                // const cantidad_ganadores = getQueryParam('cantidad_ganadores') || '';
+                // const total_meses = getQueryParam('total_meses') || '';
 
                 conversation = await Conversation.startSession({
                     signedUrl: signedUrl,
@@ -139,7 +156,7 @@ import { Conversation } from '@11labs/client';
                         cuota_normal,
                         cuota_final,
                         numero_grupo,
-                        mes_grupo,
+                        meses_restantes,
                         moneda,
                         numero_orden,
                         cantidad_ganadores,
