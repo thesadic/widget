@@ -134,6 +134,7 @@ import { Conversation } from '@11labs/client';
                 const moneda = getQueryParam('moneda') || '';
                 const numero_grupo = getQueryParam('numero_grupo') || '';
                 const numero_orden = getQueryParam('numero_orden') || '';
+                const cantidad_ganadores_mes = getQueryParam('cantidad_ganadores_mes') || '';
                 // const mes_grupo = getQueryParam('mes_grupo') || '';
                 // const cantidad_ganadores = getQueryParam('cantidad_ganadores') || '';
                 // const total_meses = getQueryParam('total_meses') || '';
@@ -160,7 +161,8 @@ import { Conversation } from '@11labs/client';
                         moneda,
                         numero_orden,
                         cantidad_ganadores,
-                        total_meses
+                        total_meses,
+                        cantidad_ganadores_mes
                     },
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
