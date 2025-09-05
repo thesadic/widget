@@ -72,7 +72,7 @@ import { Conversation } from '@11labs/client';
             conversation = null;
             isConversationActive = false;
             updateStatus(false);
-            toggleButton.innerHTML = '🎙️ Iniciar conversación';
+            toggleButton.innerHTML = '🎙️ AYUDA';
             toggleButton.disabled = false;
             isToggling = false; // Resetear el flag
         } else {
@@ -167,7 +167,7 @@ import { Conversation } from '@11labs/client';
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
-                        toggleButton.innerHTML = '⏹️ Finalizar conversación';
+                        toggleButton.innerHTML = '⏹️ DETENER';
                         toggleButton.disabled = false;
                         isConversationActive = true;
                         isToggling = false; // Resetear el flag solo si la conexión es exitosa
@@ -175,7 +175,7 @@ import { Conversation } from '@11labs/client';
                     onDisconnect: () => {
                         console.log('Eleven Labs Conversation Disconnected');
                         updateStatus(false);
-                        toggleButton.innerHTML = '🎙️ Iniciar conversación';
+                        toggleButton.innerHTML = '🎙️ AYUDA';
                         toggleButton.disabled = false;
                         isConversationActive = false;
                         conversation = null; // Limpiar la instancia
@@ -185,7 +185,7 @@ import { Conversation } from '@11labs/client';
                         console.error('Eleven Labs Conversation error:', error);
                         alert('Lo siento, ha ocurrido un error en la conversación. Por favor, intenta de nuevo.');
                         updateStatus(false);
-                        toggleButton.innerHTML = '🎙️ Iniciar conversación';
+                        toggleButton.innerHTML = '🎙️ AYUDA';
                         toggleButton.disabled = false;
                         isConversationActive = false;
                         conversation = null; // Limpiar la instancia
@@ -199,7 +199,7 @@ import { Conversation } from '@11labs/client';
             } catch (error) {
                 console.error('Error starting conversation:', error);
                 alert('No pude iniciar la conversación. Por favor, verifica tu conexión o intenta de nuevo más tarde.');
-                toggleButton.innerHTML = '🎙️ Iniciar conversación';
+                toggleButton.innerHTML = '🎙️ AYUDA';
                 toggleButton.disabled = false;
                 isConversationActive = false;
                 isToggling = false; // Resetear el flag si falla el inicio

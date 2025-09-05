@@ -1,8 +1,8 @@
 /* public/widget.css */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Gilroy-Light', 'Questrial', 'Poppins', sans-serif;
+    background-color: #002742;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@ body {
 }
 
 .widget-container {
-    background-color: #ffffff;
+    background-color: #002742;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -20,6 +20,10 @@ body {
     width: 100%;
     max-width: 300px; /* Ancho máximo para el widget dentro del iframe */
     box-sizing: border-box;
+}
+
+.widget-container, .widget-container * {
+    font-family: 'Gilroy-Light', 'Questrial', 'Poppins', sans-serif;
 }
 
 .widget-header {
@@ -56,10 +60,12 @@ body {
     margin-top: 15px;
     width: 100%;
     box-sizing: border-box;
+    font-family: 'Gilroy-ExtraBold', 'Gilroy-Light', 'Questrial', 'Poppins ExtraBold', 'Poppins Bold', 'Poppins', sans-serif;
+    font-weight: 800;
 }
 
 .widget-button:hover {
-    background-color: #0056b3;
+    background-color: #0958CF;
     transform: translateY(-2px);
 }
 
@@ -86,4 +92,66 @@ body {
 .status.disconnected {
     background-color: #ffe6e6;
     color: #dc3545;
+}
+
+
+/* Clases para usar Questrial con diferentes pesos */
+.questrial-bold {
+    font-family: 'Questrial', sans-serif;
+    font-weight: bold;
+}
+
+.questrial-extra-bold {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 800;
+}
+
+.questrial-normal {
+    font-family: 'Questrial', sans-serif;
+    font-weight: normal;
+}
+
+/* Carga la fuente Gilroy-Light */
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: url('/widget/fonts/Gilroy-Light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Carga la fuente Gilroy-ExtraBold */
+@font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: url('/widget/fonts/Gilroy-ExtraBold.otf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Carga la fuente Questrial */
+@font-face {
+    font-family: 'Questrial';
+    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Carga la fuente Questrial Bold */
+@font-face {
+    font-family: 'Questrial';
+    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Carga la fuente Questrial Extra Bold */
+@font-face {
+    font-family: 'Questrial';
+    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
