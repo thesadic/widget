@@ -1,132 +1,16 @@
 /* public/widget.css */
-body {
-    margin: 0;
-    font-family: 'Gilroy-Light', 'Questrial', 'Poppins', sans-serif;
-    background-color: #002742;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Asegura que ocupe toda la altura del iframe */
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-.widget-container {
-    background-color: #002742;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 300px; /* Ancho máximo para el widget dentro del iframe */
-    box-sizing: border-box;
-}
-
-.widget-container, .widget-container * {
-    font-family: 'Gilroy-Light', 'Questrial', 'Poppins', sans-serif;
-}
-
-.widget-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.widget-header img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.widget-header h1 {
-    font-size: 1.5em;
-    color: #333;
-    margin: 0;
-    font-weight: 600;
-}
-
-.widget-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: 'Gilroy-ExtraBold', 'Gilroy-Light', 'Questrial', 'Poppins ExtraBold', 'Poppins Bold', 'Poppins', sans-serif;
-    font-weight: 800;
-}
-
-.widget-button:hover {
-    background-color: #0958CF;
-    transform: translateY(-2px);
-}
-
-.widget-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.status {
-    margin-top: 15px;
-    font-size: 0.9em;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 15px;
-    display: inline-block;
-}
-
-.status.connected {
-    background-color: #e6ffe6;
-    color: #28a745;
-}
-
-.status.disconnected {
-    background-color: #ffe6e6;
-    color: #dc3545;
-}
-
-
-/* Clases para usar Questrial con diferentes pesos */
-.questrial-bold {
-    font-family: 'Questrial', sans-serif;
-    font-weight: bold;
-}
-
-.questrial-extra-bold {
-    font-family: 'Questrial', sans-serif;
-    font-weight: 800;
-}
-
-.questrial-normal {
-    font-family: 'Questrial', sans-serif;
-    font-weight: normal;
-}
-
-/* Carga la fuente Gilroy-Light */
 @font-face {
     font-family: 'Gilroy-Light';
-    src: url('/widget/fonts/Gilroy-Light.otf') format('truetype');
+    src: url('fonts/Gilroy-Light.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
-/* Carga la fuente Gilroy-ExtraBold */
 @font-face {
     font-family: 'Gilroy-ExtraBold';
-    src: url('/widget/fonts/Gilroy-ExtraBold.otf') format('truetype');
-    font-weight: bold;
+    src: url('fonts/Gilroy-ExtraBold.otf') format('opentype');
+    font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
 
 /* Carga la fuente Questrial */
@@ -154,4 +38,102 @@ body {
     font-weight: 800;
     font-style: normal;
     font-display: swap;
+}
+
+body {
+    margin: 0;
+    font-family: 'Gilroy-Light', sans-serif;
+    background-color: transparent;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.widget-container {
+    background-color: #002742;
+    padding: 20px;
+    width: 100%;
+    max-width: 511px; /* Ancho ajustado para el nuevo diseño */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacio entre la fila superior y la sección de info */
+    border-radius: 10px;
+    height: 197px;
+}
+
+/* Fila superior que contiene el botón y el árbol */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.spacer {
+    width: 50px; /* Mismo ancho que el logo del árbol para balancear */
+    height: auto;
+}
+
+.logo-tree {
+    width: 54px; /* Tamaño del logo del árbol */
+    height: auto;
+}
+
+.widget-button {
+    background-color: #0056b3; /* Tono de azul más cercano a la imagen */
+    color: white;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 10px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Gilroy-ExtraBold', sans-serif;
+    font-weight: normal;
+    display: flex; /* Para alinear el ícono y el texto */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre el ícono y el texto del botón */
+    width: 220px;
+    height: 53px;
+}
+
+.widget-button:hover {
+    background-color: #0958CF;
+    transform: translateY(-2px);
+}
+
+.widget-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.icon-button {
+    width: 30px; /* Tamaño del ícono del micrófono en el botón */
+    height: 30px;
+}
+
+/* Sección de información debajo del botón */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre las dos líneas de texto */
+    color: white;
+    font-size: 0.9em;
+}
+
+.info-line {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre el ícono y el texto informativo */
+}
+
+.icon-info {
+    width: 30px; /* Tamaño de los íconos de información */
+    height: 30px;
 }

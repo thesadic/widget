@@ -33,12 +33,12 @@ import { Conversation } from '@11labs/client';
     }
     
     function updateStatus(isConnected) {
-        const statusElement = document.getElementById('connectionStatus');
-        if (statusElement) {
-            statusElement.textContent = isConnected ? 'Conectada' : 'Desconectada';
-            statusElement.classList.toggle('connected', isConnected);
-            statusElement.classList.toggle('disconnected', !isConnected);
-        }
+        // const statusElement = document.getElementById('connectionStatus');
+        // if (statusElement) {
+        //     statusElement.textContent = isConnected ? 'Conectada' : 'Desconectada';
+        //     statusElement.classList.toggle('connected', isConnected);
+        //     statusElement.classList.toggle('disconnected', !isConnected);
+        // }
     }
 
     function getQueryParam(name) {
@@ -167,7 +167,7 @@ import { Conversation } from '@11labs/client';
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
-                        toggleButton.innerHTML = '⏹️ DETENER';
+                        toggleButton.innerHTML = 'DETENER';
                         toggleButton.disabled = false;
                         isConversationActive = true;
                         isToggling = false; // Resetear el flag solo si la conexión es exitosa

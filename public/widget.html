@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,25 @@
 </head>
 <body>
     <div class="widget-container">
-        <button id="toggleButton" class="widget-button">
-            🎤 AYUDA
-        </button>
-        <div id="connectionStatus" class="status disconnected">Desconectada</div>
+        <div class="top-row">
+            <div class="spacer"></div>
+            <button id="toggleButton" class="widget-button">
+                <img src="/public/images/micro.png" alt="Micrófono" class="icon-button">
+                <span id="buttonText">AYUDA</span>
+            </button>
+            <img src="/public/images/arbol.png" alt="Logo Árbol" class="logo-tree">
+        </div>
+
+        <div class="info-section">
+            <div class="info-line">
+                <img src="/public/images/micro.png" alt="Micrófono" class="icon-info">
+                <span>Hablá con tu asistente de voz y sacate todas las dudas</span>
+            </div>
+            <div class="info-line">
+                <img src="/public/images/auri.png" alt="Auriculares" class="icon-info">
+                <span>Usá auriculares para mantener tu privacidad</span>
+            </div>
+        </div>
     </div>
 
     <script src="/widget/widget.bundle.js"></script>
