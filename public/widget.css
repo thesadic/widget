@@ -1,44 +1,23 @@
 /* public/widget.css */
 @font-face {
     font-family: 'Gilroy-Light';
-    src: url('"https://consorcio.madethere.com.uy/public/fonts/Gilroy-Light.otf') format('opentype');
-    font-weight: normal;
+    src: url('../fonts/Gilroy-Light.otf') format('opentype');
+    font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
+
 
 @font-face {
     font-family: 'Gilroy-ExtraBold';
-    src: url('https://consorcio.madethere.com.uy/public/fonts/Gilroy-ExtraBold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Carga la fuente Questrial */
-@font-face {
-    font-family: 'Questrial';
-    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Carga la fuente Questrial Bold */
-@font-face {
-    font-family: 'Questrial';
-    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Carga la fuente Questrial Extra Bold */
-@font-face {
-    font-family: 'Questrial';
-    src: url('https://fonts.gstatic.com/s/questrial/v18/QdVUSTchPBm7nuUeVf7EuA.woff2') format('woff2');
+    src: url('../fonts/Gilroy-ExtraBold.otf') format('opentype');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
+
+
+/* Questrial se carga desde Google Fonts en el HTML */
 
 body {
     margin: 0;
