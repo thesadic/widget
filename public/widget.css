@@ -1,14 +1,14 @@
 /* public/widget.css */
 @font-face {
     font-family: 'Gilroy-Light';
-    src: url('fonts/Gilroy-Light.otf') format('opentype');
+    src: url('"https://consorcio.madethere.com.uy/public/fonts/Gilroy-Light.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy-ExtraBold';
-    src: url('fonts/Gilroy-ExtraBold.otf') format('opentype');
+    src: url('https://consorcio.madethere.com.uy/public/fonts/Gilroy-ExtraBold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -92,8 +92,8 @@ body {
     font-size: 35px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    font-family: 'Gilroy-ExtraBold', sans-serif;
-    font-weight: normal;
+    font-family: 'Gilroy-ExtraBold', 'Questrial', sans-serif;
+    font-weight: 800;
     display: flex; /* Para alinear el ícono y el texto */
     align-items: center;
     justify-content: center;
