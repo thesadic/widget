@@ -5,6 +5,7 @@ import { Conversation } from '@11labs/client';
     let conversation = null;
     let isConversationActive = false;
     let isToggling = false; // Nuevo flag para evitar múltiples clics rápidos
+    let originalButtonHTML = '';
 
     async function requestMicrophonePermission() {
         try {
@@ -46,6 +47,17 @@ import { Conversation } from '@11labs/client';
         return urlParams.get(name);
     }
 
+    function setButtonToHelp(button) {
+        if (!originalButtonHTML) {
+            originalButtonHTML = button.innerHTML;
+        }
+        button.innerHTML = originalButtonHTML; // Restaura ícono + texto AYUDA
+    }
+
+    function setButtonToStop(button) {
+        button.textContent = 'DETENER'; // Estado activo sin ícono
+    }
+
     async function toggleConversation() {
         const toggleButton = document.getElementById('toggleButton');
         if (!toggleButton || isToggling) { // Bloquear si ya estamos en un proceso de toggle
@@ -72,7 +84,7 @@ import { Conversation } from '@11labs/client';
             conversation = null;
             isConversationActive = false;
             updateStatus(false);
-            toggleButton.textContent = 'AYUDA';
+            setButtonToHelp(toggleButton);
             toggleButton.disabled = false;
             isToggling = false; // Resetear el flag
         } else {
@@ -167,7 +179,7 @@ import { Conversation } from '@11labs/client';
                     onConnect: () => {
                         console.log('Eleven Labs Conversation Connected');
                         updateStatus(true);
-                        toggleButton.innerHTML = 'DETENER';
+                        setButtonToStop(toggleButton);
                         toggleButton.disabled = false;
                         isConversationActive = true;
                         isToggling = false; // Resetear el flag solo si la conexión es exitosa
@@ -175,7 +187,7 @@ import { Conversation } from '@11labs/client';
                     onDisconnect: () => {
                         console.log('Eleven Labs Conversation Disconnected');
                         updateStatus(false);
-                        toggleButton.textContent = 'AYUDA';
+                        setButtonToHelp(toggleButton);
                         toggleButton.disabled = false;
                         isConversationActive = false;
                         conversation = null; // Limpiar la instancia
@@ -185,7 +197,7 @@ import { Conversation } from '@11labs/client';
                         console.error('Eleven Labs Conversation error:', error);
                         alert('Lo siento, ha ocurrido un error en la conversación. Por favor, intenta de nuevo.');
                         updateStatus(false);
-                        toggleButton.textContent = 'AYUDA';
+                        setButtonToHelp(toggleButton);
                         toggleButton.disabled = false;
                         isConversationActive = false;
                         conversation = null; // Limpiar la instancia
@@ -199,7 +211,7 @@ import { Conversation } from '@11labs/client';
             } catch (error) {
                 console.error('Error starting conversation:', error);
                 alert('No pude iniciar la conversación. Por favor, verifica tu conexión o intenta de nuevo más tarde.');
-                toggleButton.textContent = 'AYUDA';
+                setButtonToHelp(toggleButton);
                 toggleButton.disabled = false;
                 isConversationActive = false;
                 isToggling = false; // Resetear el flag si falla el inicio
@@ -210,6 +222,7 @@ import { Conversation } from '@11labs/client';
     window.addEventListener('DOMContentLoaded', () => {
         const toggleButton = document.getElementById('toggleButton');
         if (toggleButton) {
+            originalButtonHTML = toggleButton.innerHTML; // Guardar estructura original (ícono + texto)
             toggleButton.addEventListener('click', toggleConversation);
             // Iniciar conversación automáticamente si autoStart=true
             if (getQueryParam('autoStart') === 'true' && !isConversationActive) {
