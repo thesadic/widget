@@ -21,7 +21,8 @@
 
 body {
     margin: 0;
-    font-family: 'Gilroy-Light', sans-serif;
+    font-family: 'Montserrat', 'Gilroy-Light', sans-serif;
+    font-weight: 300;
     background-color: transparent;    
     display: flex;
     justify-content: center;
@@ -71,8 +72,8 @@ body {
     font-size: 35px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    font-family: 'Gilroy-ExtraBold', 'Questrial', sans-serif;
-    font-weight: 800;
+    font-family: 'Montserrat', 'Gilroy-ExtraBold', 'Questrial', sans-serif;
+    font-weight: 700;
     display: flex; /* Para alinear el ícono y el texto */
     align-items: center;
     justify-content: center;
