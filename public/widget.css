@@ -43,6 +43,7 @@ body {
     gap: 25px; /* Espacio entre la fila superior y la sección de info */
     border-radius: 10px;
     height: 197px;
+    position: relative; /* Para posicionar la imagen de Julia de forma absoluta */
 }
 
 /* Fila superior que contiene el botón y el árbol */
@@ -58,9 +59,24 @@ body {
     height: auto;
 }
 
+.spacer-left {
+    width: 80px; /* Mismo ancho que la imagen de Julia para balancear */
+    height: auto;
+}
+
 .logo-tree {
     width: 54px; /* Tamaño del logo del árbol */
     height: auto;
+}
+
+.logo-julia {
+    width: 80px; /* Imagen más grande */
+    height: 80px; /* Altura fija para mantener forma circular */
+    border-radius: 50%; /* Para hacer la imagen circular */
+    object-fit: cover; /* Para mantener las proporciones */
+    position: absolute; /* Posición absoluta para no afectar el flujo */
+    left: 40px; /* Posición desde la izquierda del contenedor */
+    top: 10px; /* Posición desde arriba del contenedor */
 }
 
 .widget-button {
