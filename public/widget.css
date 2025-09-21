@@ -133,3 +133,33 @@ body {
     width: 30px; /* Tamaño de los íconos de información */
     height: 30px;
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 480px) {
+    .logo-julia {
+        width: 60px; /* Reducir el tamaño de Julia en móviles */
+        height: 60px; /* Reducir el tamaño de Julia en móviles */
+        left: 20px; /* Reducir el espacio desde el margen izquierdo */
+        top: 15px; /* Ajustar posición vertical */
+    }
+    
+    .widget-button {
+        font-size: 28px; /* Reducir el tamaño del texto del botón */
+        width: 180px; /* Reducir el ancho del botón */
+        height: 45px; /* Reducir la altura del botón */
+    }
+    
+    .info-section {
+        font-size: 0.75em; /* Reducir el tamaño del texto informativo */
+    }
+    
+    .icon-button {
+        width: 24px; /* Reducir el tamaño del ícono del micrófono en el botón */
+        height: 24px;
+    }
+    
+    .icon-info {
+        width: 24px; /* Reducir el tamaño de los íconos de información */
+        height: 24px;
+    }
+}
